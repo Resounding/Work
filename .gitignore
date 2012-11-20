@@ -1,0 +1,4 @@
+*.suo
+*.user
+Site\bin\*
+Site\obj\*
