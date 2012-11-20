@@ -1,4 +1,4 @@
 *.suo
 *.user
-Site\bin\*
-Site\obj\*
+Site/bin/*
+Site/obj/*
