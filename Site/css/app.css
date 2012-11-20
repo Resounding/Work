@@ -1,0 +1,25 @@
+﻿.masthead {
+    margin: 60px auto;
+    max-width: 720px;
+    text-align: center;
+}
+h1 {
+    font-size: 72px;
+    margin-bottom: 20px;
+    line-height: 1;
+    color: #de3000;
+}
+.masthead.btn,
+.masthead input {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+.modal h3 {
+    color: #de3000;
+}
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 48px;
+    }
+}
