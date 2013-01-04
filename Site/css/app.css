@@ -1,4 +1,8 @@
-﻿.masthead {
+﻿body {
+    font: 15px Segoe UI, Helvetica, Arial, sans-serif;
+    line-height: 24px;
+}
+.masthead {
     margin: 60px auto;
     max-width: 720px;
     text-align: center;
@@ -22,4 +26,22 @@ h1 {
     h1 {
         font-size: 48px;
     }
+}
+
+.purple-stripe {
+    border-left: 3px solid #852b99;
+}
+
+
+.tile .tile-content .brand {
+    padding-bottom: 10px;
+    padding-right: 15px;
+}
+.tile .tile-content .brand .badge {
+    width: 50%;
+    text-align: right;
+}
+
+.tile .tile-content .brand img {
+    height: 20px;
 }

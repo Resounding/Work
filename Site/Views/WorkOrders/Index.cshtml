@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Site.Models.WorkOrder>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Page.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/css/modern.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/modern-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/app.css" />
+</head>
+<body>
+    <div class="page secondary">
+        <div class="page-header">
+            <div class="page-header-content">
+                <h1>@Page.Title</h1>
+            </div>
+        </div>
+        <div class="page-region">
+            <div class="page-region-content">
+                <div class="grid">
+                    @foreach (var item in Model) {
+                        <div class="row">
+                            <div class="span10">
+                                @Html.DisplayForModel(item)
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

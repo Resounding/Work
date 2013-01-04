@@ -42,9 +42,13 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -114,10 +118,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\DemoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\WorkOrdersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Crew.cs" />
+    <Compile Include="Models\DbMaps.cs" />
+    <Compile Include="Models\WorkOrder.cs" />
+    <Compile Include="Models\WorkOrderCategory.cs" />
+    <Compile Include="Models\WorkOrderLog.cs" />
+    <Compile Include="Models\WorkOrdersContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,13 +138,39 @@
     <Content Include="css\app.css" />
     <Content Include="css\bootstrap-responsive.css" />
     <Content Include="css\bootstrap.css" />
+    <Content Include="css\m-styles.min.css" />
+    <Content Include="css\modern-responsive.css" />
+    <Content Include="css\modern.css" />
+    <Content Include="css\theme-dark.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\iconFont.svg" />
+    <Content Include="fonts\license.txt" />
     <Content Include="Global.asax" />
+    <Content Include="img\preloader-w8-cycle-black.gif" />
+    <Content Include="img\preloader-w8-cycle-white.gif" />
+    <Content Include="img\preloader-w8-line-black.gif" />
+    <Content Include="img\preloader-w8-line-white.gif" />
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\syncfusion-icons-white.png" />
+    <Content Include="img\syncfusion-icons.png" />
+    <Content Include="js\accordion.js" />
     <Content Include="js\bootstrap.js" />
+    <Content Include="js\buttonset.js" />
+    <Content Include="js\carousel.js" />
+    <Content Include="js\dropdown.js" />
+    <Content Include="js\input-control.js" />
     <Content Include="js\jquery-1.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="js\m-dropdown.js" />
+    <Content Include="js\m-radio.js" />
+    <Content Include="js\pagecontrol.js" />
+    <Content Include="js\rating.js" />
+    <Content Include="js\slider.js" />
+    <Content Include="js\tile-drag.js" />
+    <Content Include="js\tile-slider.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -141,7 +180,13 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\iconFont.eot" />
+    <Content Include="fonts\iconFont.ttf" />
+    <Content Include="fonts\iconFont.woff" />
+    <Content Include="Views\WorkOrders\DisplayTemplates\WorkOrder.cshtml" />
     <None Include="Properties\PublishProfiles\AWS.pubxml" />
+    <Content Include="Views\Demo\Index.cshtml" />
+    <Content Include="Views\WorkOrders\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -149,7 +194,9 @@
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\App\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -166,9 +213,10 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>53268</DevelopmentServerPort>
+          <DevelopmentServerPort>55769</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:52559/</IISUrl>
+          <IISUrl>
+          </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
