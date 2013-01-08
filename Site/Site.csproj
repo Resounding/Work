@@ -125,6 +125,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BossListCrewModel.cs" />
+    <Compile Include="Models\BossListDayModel.cs" />
+    <Compile Include="Models\BossListViewModel.cs" />
+    <Compile Include="Models\BossListWorkOrderModel.cs" />
     <Compile Include="Models\Crew.cs" />
     <Compile Include="Models\DbMaps.cs" />
     <Compile Include="Models\WorkOrder.cs" />
@@ -146,6 +150,8 @@
     <Content Include="fonts\iconFont.svg" />
     <Content Include="fonts\license.txt" />
     <Content Include="Global.asax" />
+    <Content Include="img\Installation.png" />
+    <Content Include="img\Maintenance.png" />
     <Content Include="img\preloader-w8-cycle-black.gif" />
     <Content Include="img\preloader-w8-cycle-white.gif" />
     <Content Include="img\preloader-w8-line-black.gif" />
@@ -183,10 +189,12 @@
     <Content Include="fonts\iconFont.eot" />
     <Content Include="fonts\iconFont.ttf" />
     <Content Include="fonts\iconFont.woff" />
-    <Content Include="Views\WorkOrders\DisplayTemplates\WorkOrder.cshtml" />
+    <Content Include="Views\WorkOrders\DisplayTemplates\BossListWorkOrderModel.cshtml" />
     <None Include="Properties\PublishProfiles\AWS.pubxml" />
     <Content Include="Views\Demo\Index.cshtml" />
     <Content Include="Views\WorkOrders\Index.cshtml" />
+    <Content Include="Views\WorkOrders\DisplayTemplates\BossListCrewModel.cshtml" />
+    <Content Include="Views\WorkOrders\DisplayTemplates\BossListDayModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

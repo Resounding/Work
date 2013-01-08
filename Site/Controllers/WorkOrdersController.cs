@@ -10,7 +10,9 @@ namespace Site.Controllers
         {
             using (var context = new WorkOrderContext()) {
                 var workorders = context.WorkOrders.Include("Crew").Include("Category").Include("WorkOrderLogs").ToList();
-                return View(workorders);
+
+                var viewModel = new BossListViewModel(workorders);
+                return View(viewModel);
             }
         }
 

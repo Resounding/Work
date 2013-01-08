@@ -1,0 +1,13 @@
+﻿@model Site.Models.BossListWorkOrderModel
+
+<div class="tile double @Model.TileClass">
+    <div class="tile-content">
+        <h2>@Model.Category</h2>
+        <h5>@Model.AssignedTo</h5>
+        <p>@Model.Description</p>
+        <div class="brand">
+            <div class="badge">@Model.Date</div>
+            <img class="icon" src="@Model.ImageUrl" />
+        </div>
+    </div>
+</div>

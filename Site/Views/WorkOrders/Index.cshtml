@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Site.Models.WorkOrder>
+﻿@model Site.Models.BossListViewModel
 
 @{
     Layout = null;
@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@Page.Title</title>
+    <title>@Model.Title</title>
     <link rel="stylesheet" type="text/css" href="~/css/modern.css" />
     <link rel="stylesheet" type="text/css" href="~/css/modern-responsive.css" />
     <link rel="stylesheet" type="text/css" href="~/css/app.css" />
@@ -18,18 +18,14 @@
     <div class="page secondary">
         <div class="page-header">
             <div class="page-header-content">
-                <h1>@Page.Title</h1>
+                <h1>@Model.Title</h1>
             </div>
         </div>
         <div class="page-region">
             <div class="page-region-content">
                 <div class="grid">
-                    @foreach (var item in Model) {
-                        <div class="row">
-                            <div class="span10">
-                                @Html.DisplayForModel(item)
-                            </div>
-                        </div>
+                    @foreach (var crew in Model.Crews) {
+                        @Html.Partial("~/Views/WorkOrders/DisplayTemplates/BossListCrewModel.cshtml", crew)
                     }
                 </div>
             </div>

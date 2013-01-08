@@ -1,0 +1,8 @@
+﻿@model Site.Models.BossListDayModel
+
+@foreach (var workOrder in Model.WorkOrders) {
+    <div class="row">
+        <div class="span1">@Model.Date</div>
+        @Html.Partial("~/Views/WorkOrders/DisplayTemplates/BossListWorkOrderModel.cshtml", workOrder)
+    </div>
+}
