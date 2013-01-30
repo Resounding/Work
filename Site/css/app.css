@@ -22,9 +22,12 @@ h1 {
     color: #de3000;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 979px) {
     h1 {
-        font-size: 48px;
+        font-size: 48pt;
+    }
+    h3 {
+        font-size: 12pt;
     }
 }
 
@@ -50,17 +53,33 @@ h1 {
     padding: 10px;    
     overflow: hidden;
 }
+.day > .crew-day > h2 {
+    display: none;
+}
+@media (max-width: 480px) {
+    .crew-day {
+        width: 100%;
+    }
+
+    .day > .crew-day > h2 {
+        display: block;
+    }
+
+    body.boss-list header {
+        display: none;
+    }
+}
 .crew-day .date {
     text-align: right;
     padding-right: 10px;
 }
 
-.day, .day-header {
+.day, body.boss-list header {
     width: 100%;
     border-top: 1px solid #ddd;
     height: 180px;
 }
-.day-header {
+body.boss-list header {
     height: 100px;
     position: fixed;
     top: 0;
@@ -68,10 +87,10 @@ h1 {
     background-color: #fff;
     border-bottom: 1px solid #ddd;
 }
-.day-header + * {
+body.boss-list header + * {
     margin-top: 100px;
 }
-.day-header h2 {
+body.boss-list header h2 {
     padding: 0;
     margin: 0;
 }
