@@ -32,15 +32,46 @@ h1 {
     border-left: 3px solid #852b99;
 }
 
-
-.tile .tile-content .brand {
-    padding-bottom: 10px;
-    padding-right: 15px;
+.tile {
+    width: 100%;
+    background-color: #2d89ef !important;
 }
-.tile .tile-content .brand .badge {
-    width: 50%;
-    text-align: right;
+.tile h2 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .tile .tile-content p {
-    max-height: 48px; /* 16px line-height x 3 */
+    max-height: 32px; /* 16px line-height x 2 */
+}
+
+.crew-day {
+    float: left;
+    width: 20%;
+    padding: 10px;    
+    overflow: hidden;
+}
+.crew-day .date {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.day, .day-header {
+    width: 100%;
+    border-top: 1px solid #ddd;
+    height: 180px;
+}
+.day-header {
+    height: 100px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.day-header + * {
+    margin-top: 100px;
+}
+.day-header h2 {
+    padding: 0;
+    margin: 0;
 }

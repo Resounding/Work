@@ -184,6 +184,10 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
+    <Content Include="Wireframes\BossViewJob.html" />
+    <Content Include="Wireframes\BossViewCrewDay.html" />
+    <Content Include="Wireframes\BossViewDay.html" />
+    <Content Include="Wireframes\BossView.html" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\iconFont.eot" />
