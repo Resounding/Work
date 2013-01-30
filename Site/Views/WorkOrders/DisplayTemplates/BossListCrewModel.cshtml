@@ -1,7 +1,9 @@
 ﻿@model Site.Models.BossListCrewModel
 
-<div>
-    @foreach (var day in Model.Days) {
-        @Html.Partial("~/Views/WorkOrders/DisplayTemplates/BossListDayModel.cshtml", day);
+<div class="crew-day">
+    <h2>@Model.Crew.Name</h2>
+    
+    @foreach(var workOrder in Model.WorkOrders) {
+        @Html.Partial("~/Views/WorkOrders/DisplayTemplates/BossListWorkOrderModel.cshtml", workOrder);   
     }
 </div>

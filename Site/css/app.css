@@ -47,6 +47,10 @@ h1 {
     max-height: 32px; /* 16px line-height x 2 */
 }
 
+.boss-list .page-region {
+    margin-top: 100px;
+}
+
 .crew-day {
     float: left;
     width: 20%;
@@ -81,7 +85,7 @@ h1 {
 }
 body.boss-list header {
     height: 100px;
-    position: fixed;
+    position: absolute;
     top: 0;
     z-index: 1000;
     background-color: #fff;

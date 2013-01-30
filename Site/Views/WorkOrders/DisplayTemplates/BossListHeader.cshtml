@@ -1,0 +1,8 @@
+﻿@model Site.Models.BossListViewModel
+
+<header>
+    <div class="crew-day">&nbsp;</div>
+    @foreach (var crew in Model.CrewNames) {
+        <div class="crew-day"><h2>@crew</h2></div>
+    }
+</header>

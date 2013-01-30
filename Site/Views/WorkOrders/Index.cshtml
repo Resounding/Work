@@ -14,8 +14,8 @@
     <link rel="stylesheet" type="text/css" href="~/css/modern-responsive.css" />
     <link rel="stylesheet" type="text/css" href="~/css/app.css" />
 </head>
-<body>
-    <div class="page secondary">
+<body class="boss-list">
+    <div class="page">
         <div class="page-header">
             <div class="page-header-content">
                 <h1>@Model.Title</h1>
@@ -23,11 +23,13 @@
         </div>
         <div class="page-region">
             <div class="page-region-content">
-                <div class="grid">
-                    @foreach (var crew in Model.Crews) {
-                        @Html.Partial("~/Views/WorkOrders/DisplayTemplates/BossListCrewModel.cshtml", crew)
-                    }
-                </div>
+                
+                @Html.Partial("~/Views/WorkOrders/DisplayTemplates/BossListHeader.cshtml", Model)
+                    
+                @foreach (var day in Model.Days) {
+                    @Html.Partial("~/Views/WorkOrders/DisplayTemplates/BossListDayModel.cshtml", day);
+                }
+                
             </div>
         </div>
     </div>

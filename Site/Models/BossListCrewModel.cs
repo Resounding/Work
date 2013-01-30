@@ -7,22 +7,14 @@ namespace Site.Models
 {
     public class BossListCrewModel
     {
-        public BossListCrewModel(ICollection<WorkOrder> workOrders)
+        public BossListCrewModel(Crew crew, ICollection<WorkOrder> workOrders)
         {
-            var days = new Dictionary<DateTime, ICollection<WorkOrder>>();
+            Crew = crew;
 
-            foreach (var workOrder in workOrders) {
-                var date = workOrder.Date.HasValue?workOrder.Date.Value:DateTime.MinValue;
-
-                if (!days.ContainsKey(date)) {
-                    days.Add(date, new List<WorkOrder>());
-                }
-
-                days[date].Add(workOrder);
-            }
-
-            Days = days.Keys.OrderBy(d => d).Select(day => new BossListDayModel(day, days[day])).ToList();
+            WorkOrders = workOrders.Select(w => new BossListWorkOrderModel(w)).ToList();
         }
-        public ICollection<BossListDayModel> Days { get; set; }
+
+        public Crew Crew { get; set; }
+        public ICollection<BossListWorkOrderModel> WorkOrders { get; set; }
     }
 }

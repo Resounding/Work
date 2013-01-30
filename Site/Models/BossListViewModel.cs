@@ -9,19 +9,28 @@ namespace Site.Models
     {
         public BossListViewModel(ICollection<WorkOrder> workOrders)
         {
-            var crews = new Dictionary<Crew, ICollection<WorkOrder>>();
-            foreach (var workOrder in workOrders) {
-                if (!crews.ContainsKey(workOrder.Crew)) {
-                    crews.Add(workOrder.Crew, new List<WorkOrder>());
-                }
+            Days = new List<BossListDayModel>();
+            Dates = new List<string>();
 
-                crews[workOrder.Crew].Add(workOrder);
+            var firstDate = DateTime.Today;
+            while (firstDate.DayOfWeek != DayOfWeek.Monday) {
+                firstDate = firstDate.AddDays(-1);
             }
 
-            Crews = crews.Keys.OrderBy(c => c.Name).Select(crew => new BossListCrewModel(crews[crew])).ToList();
+            var distinctCrews = workOrders.Select(w => w.Crew).Distinct().OrderBy(c => c.Name).ToList();
+            CrewNames = distinctCrews.Select(c => c.Name).ToList();
+            
+            for (var i = 0; i < 5; i++) {
+                var date = firstDate.AddDays(i);
+                Dates.Add(date.ToString("dd-MMM-yyyy"));
+
+                Days.Add(new BossListDayModel(date, distinctCrews, workOrders));
+            }               
         }
 
         public string Title { get { return "Work Order List (All)"; } }
-        public ICollection<BossListCrewModel> Crews { get; set; }
+        public ICollection<string> CrewNames { get; set; }
+        public ICollection<BossListDayModel> Days { get; set; }
+        public ICollection<string> Dates { get; set; }
     }
 }
