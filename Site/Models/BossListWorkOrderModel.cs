@@ -19,12 +19,14 @@ namespace Site.Models
             AssignedTo = workOrder.Crew == null ? "Unassigned" : workOrder.Crew.Name;
             Date = workOrder.Date.HasValue ? workOrder.Date.Value.ToString("dd-MMM-yyyy hh:mm tt") : string.Empty;
             Order = workOrder.Date.HasValue ? workOrder.Date.Value.Ticks : BossListWorkOrderModel.nextOrder++;
+            Duration = workOrder.Duration;
         }
 
         public Guid Id { get; set; }
         public String Customer { get; set; }
         public String Description { get; set; }
         public bool IsComplete { get; set; }
+        public string Duration { get; set; }
 
         public long Order { get; set; }
         
@@ -43,10 +45,7 @@ namespace Site.Models
 
         public string TileClass
         {
-            get
-            {
-                return "bg-color-" + (Category == "Maintenance" ? "green" : "blue");
-            }
+            get { return Category.ToLower(); }
         }
     }
 }

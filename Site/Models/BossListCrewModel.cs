@@ -11,7 +11,7 @@ namespace Site.Models
         {
             Crew = crew;
 
-            WorkOrders = workOrders.Select(w => new BossListWorkOrderModel(w)).ToList();
+            WorkOrders = workOrders.Where(w => w.Crew == crew).Select(w => new BossListWorkOrderModel(w)).ToList();
         }
 
         public Crew Crew { get; set; }

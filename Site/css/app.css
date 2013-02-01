@@ -36,8 +36,22 @@ h1 {
 }
 
 .tile {
-    width: 100%;
+    width: 100%;    
+    height: 120px;
+}
+.tile.construction {
+    background-color: #00a300 !important;
+}
+.tile.construction .brand img {
+    background-image: url(/img/Installation.png);
+    background-repeat: no-repeat;
+}
+.tile.maintenance {
     background-color: #2d89ef !important;
+}
+.tile.maintenance .brand img {
+    background-image: url(/img/Maintenance.png);
+    background-repeat: no-repeat;
 }
 .tile h2 {
     white-space: nowrap;
@@ -78,21 +92,21 @@ h1 {
     padding-right: 10px;
 }
 
-.day, body.boss-list header {
+.day {
     width: 100%;
     border-top: 1px solid #ddd;
-    height: 180px;
+    min-height: 180px;
 }
 body.boss-list header {
+    width: 100%;
     height: 100px;
-    position: absolute;
     top: 0;
-    z-index: 1000;
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
+    z-index: 10;
+    background-color: #eff4ff;
 }
-body.boss-list header + * {
-    margin-top: 100px;
+body.boss-list header.header-fixed {
+    position: fixed;
+    border-bottom: 1px solid #ddd;
 }
 body.boss-list header h2 {
     padding: 0;

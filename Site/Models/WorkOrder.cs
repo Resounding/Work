@@ -14,6 +14,7 @@ namespace Site.Models
         public String Description { get; set; }
         public Guid CategoryId { get; set; }
         public bool IsComplete { get; set; }
+        public String Duration { get; set; }
 
         public WorkOrderCategory Category { get; set; }
         public Crew Crew { get; set; }
