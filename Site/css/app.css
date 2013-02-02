@@ -37,7 +37,7 @@ h1 {
 
 .tile {
     width: 100%;    
-    height: 120px;
+    min-height: 120px;
 }
 .tile.construction {
     background-color: #00a300 !important;
