@@ -62,7 +62,7 @@ h1 {
 }
 
 .boss-list .page-region {
-    margin-top: 100px;
+    margin-top: 160px;
 }
 
 .crew-day {
@@ -100,15 +100,41 @@ h1 {
 body.boss-list header {
     width: 100%;
     height: 100px;
+    margin-bottom: 60px;
     top: 0;
     z-index: 10;
     background-color: #eff4ff;
+}
+body.boss-list header .crew-day {
+    height: 100px;
 }
 body.boss-list header.header-fixed {
     position: fixed;
     border-bottom: 1px solid #ddd;
 }
+body.boss-list header .toolbar {
+    height: 60px;
+    width: 100%;
+    z-index: 10;
+    background-color: #fff;
+}
+body.boss-list header.header-fixed .toolbar {
+    position: absolute;
+    top: 100px;
+}
 body.boss-list header h2 {
     padding: 0;
     margin: 0;
+}
+.toolbar a.button {
+    width: auto;
+    padding-right: 10px;
+}
+.toolbar a.new {
+    color: #fff;
+    font-size: 20pt;
+    background-color: #9f00a7;
+    border: solid 1px #1d1d1d;
+    padding: 10px;
+    height: 50px;
 }

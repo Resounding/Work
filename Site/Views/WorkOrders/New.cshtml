@@ -1,0 +1,36 @@
+﻿@model Site.Models.NewWorkOrderModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Model.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/css/modern.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/modern-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/app.css" />
+
+    <script type="text/javascript" src="/js/jquery-1.9.0.js"></script>
+</head>
+<body class="boss-list">
+    <div class="page secondary">
+        <div class="page-header">
+            <div class="page-header-content">
+                <h1>@Model.Title</h1>
+                <a href="@Url.Action("Index")" class="back-button big page-back"></a>
+            </div>
+        </div>
+        <div class="page-region">
+            <div class="page-region-content">
+                
+                
+                
+            </div>
+        </div>
+    </div>    
+</body>
+</html>

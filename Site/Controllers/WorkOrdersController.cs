@@ -16,5 +16,10 @@ namespace Site.Controllers
             }
         }
 
+        public ActionResult New()
+        {
+            var viewModel = new NewWorkOrderModel { Title = "New Work Order" };
+            return View(viewModel);
+        }
     }
 }

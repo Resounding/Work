@@ -5,4 +5,8 @@
     @foreach (var crew in Model.CrewNames) {
         <div class="crew-day"><h2>@crew</h2></div>
     }
+    <div class="clearfix"></div>
+    <div class="toolbar">
+        <a href="@Url.Action("New")" class="button new"><i class="icon-plus"></i> New Work Order</a>
+    </div>
 </header>

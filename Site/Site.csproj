@@ -131,6 +131,7 @@
     <Compile Include="Models\BossListWorkOrderModel.cs" />
     <Compile Include="Models\Crew.cs" />
     <Compile Include="Models\DbMaps.cs" />
+    <Compile Include="Models\NewWorkOrderModel.cs" />
     <Compile Include="Models\WorkOrder.cs" />
     <Compile Include="Models\WorkOrderCategory.cs" />
     <Compile Include="Models\WorkOrderLog.cs" />
@@ -201,6 +202,7 @@
     <Content Include="Views\WorkOrders\DisplayTemplates\BossListCrewModel.cshtml" />
     <Content Include="Views\WorkOrders\DisplayTemplates\BossListDayModel.cshtml" />
     <Content Include="Views\WorkOrders\DisplayTemplates\BossListHeader.cshtml" />
+    <Content Include="Views\WorkOrders\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
