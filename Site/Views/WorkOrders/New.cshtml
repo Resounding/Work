@@ -1,4 +1,4 @@
-﻿@model Site.Models.NewWorkOrderModel
+﻿@model Site.Models.NewWorkOrderViewModel
 
 @{
     Layout = null;
@@ -26,9 +26,42 @@
         </div>
         <div class="page-region">
             <div class="page-region-content">
-                
-                
-                
+                @using(Html.BeginForm("Index", "WorkOrders")) {
+                        
+                    <label>Date:</label>
+                    <div class="input-control text span2">
+                        <input type="text" name="Date" value="@Model.Date" class="with-helper" />
+                        <button class="helper" tabindex="-1" type="button"></button>
+                    </div>
+                    
+                    <label>Customer:</label>
+                    <div class="input-control text span5">
+                        <input type="text" name="Customer" />
+                    </div>
+                    
+                    <label>Crew:</label>
+                    <div class="input-control select span5">
+                        @Html.DropDownListFor(wo => wo.CrewId, new SelectList(Model.Crews, "Id", "Name"))
+                    </div>
+                    
+                    <label>Description:</label>
+                    <div class="input-control textarea span7">
+                        <textarea name="Description" rows="5"></textarea>
+                    </div>
+                    
+                    <label>Category:</label>
+                    <div class="input-control select span2">
+                        @Html.DropDownListFor(wo => wo.CategoryId, new SelectList(Model.Categories, "Id", "Name"))
+                    </div>
+                    
+                    <label>Duration:</label>
+                    <div class="input-control select span2">
+                        @Html.DropDownListFor(wo => wo.Duration, Model.Durations.Select(d => new SelectListItem{ Text = d, Value = d }))
+                    </div>
+                    
+                    @Html.ActionLink("Cancel", "Index", null, new { @class = "button" })
+                    <input type="submit" value="Save" class="button" />
+                }
             </div>
         </div>
     </div>    
