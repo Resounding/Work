@@ -129,6 +129,7 @@
     <Compile Include="Models\BossListDayModel.cs" />
     <Compile Include="Models\BossListViewModel.cs" />
     <Compile Include="Models\BossListWorkOrderModel.cs" />
+    <Compile Include="Models\EditWorkOrderModel.cs" />
     <Compile Include="Models\Crew.cs" />
     <Compile Include="Models\DbMaps.cs" />
     <Compile Include="Models\NewWorkOrderModel.cs" />
@@ -203,6 +204,7 @@
     <Content Include="Views\WorkOrders\DisplayTemplates\BossListDayModel.cshtml" />
     <Content Include="Views\WorkOrders\DisplayTemplates\BossListHeader.cshtml" />
     <Content Include="Views\WorkOrders\New.cshtml" />
+    <Content Include="Views\WorkOrders\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -210,9 +212,7 @@
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\App\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
