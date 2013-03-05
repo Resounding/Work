@@ -100,8 +100,11 @@ namespace Site.Controllers
         {
             if (reset) {
                 using (var context = new WorkOrderContext()) {
-                    context.Database.Delete();
-                    context.Database.Create();
+                    context.Database.SqlQuery<int>("DELETE dbo.WorkOrderLogs");
+                    context.Database.SqlQuery<int>("DELETE dbo.WorkOrders");
+                    context.Database.SqlQuery<int>("DELETE dbo.Crews");
+                    context.Database.SqlQuery<int>("DELETE dbo.WorkOrderCategories");
+                    context.Database.SqlQuery<int>("DELETE dbo.__MigrationHistory");
                     context.Database.Initialize(true);
                 }
             }
