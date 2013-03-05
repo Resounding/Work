@@ -205,6 +205,7 @@
     <Content Include="Views\WorkOrders\DisplayTemplates\BossListHeader.cshtml" />
     <Content Include="Views\WorkOrders\New.cshtml" />
     <Content Include="Views\WorkOrders\Edit.cshtml" />
+    <Content Include="Views\WorkOrders\Reset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

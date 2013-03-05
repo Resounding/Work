@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Reset Data</title>
+    <link rel="stylesheet" type="text/css" href="~/css/modern.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/modern-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/app.css" />
+
+    <script type="text/javascript" src="/js/jquery-1.9.0.js"></script>
+</head>
+<body>
+    <div class="page secondary">
+        <div class="page-header">
+            <div class="page-header-content">
+                <h1>Reset Data</h1>
+                <a href="@Url.Action("Index")" class="back-button big page-back"></a>
+            </div>
+        </div>
+        <div class="page-region">
+            <div class="page-region-content">
+                @using(Html.BeginForm("Reset", "WorkOrders")) {
+                        
+                    <input type="hidden" name="reset" value="true" />
+                    
+                    @Html.ActionLink("Cancel", "Index", null, new { @class = "button" })
+                    <input type="submit" value="Reset" class="button" />
+                }
+            </div>
+        </div>
+    </div>    
+</body>
+</html>

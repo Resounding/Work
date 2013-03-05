@@ -89,5 +89,24 @@ namespace Site.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        public ActionResult Reset()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Reset(bool reset)
+        {
+            if (reset) {
+                using (var context = new WorkOrderContext()) {
+                    context.Database.Delete();
+                    context.Database.Create();
+                    context.Database.Initialize(true);
+                }
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }
