@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\DemoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\WorkController.cs" />
     <Compile Include="Controllers\WorkOrdersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -129,6 +130,7 @@
     <Compile Include="Models\BossListDayModel.cs" />
     <Compile Include="Models\BossListViewModel.cs" />
     <Compile Include="Models\BossListWorkOrderModel.cs" />
+    <Compile Include="Models\ChooseCrewModel.cs" />
     <Compile Include="Models\EditWorkOrderModel.cs" />
     <Compile Include="Models\Crew.cs" />
     <Compile Include="Models\DbMaps.cs" />
@@ -152,6 +154,7 @@
     <Content Include="fonts\iconFont.svg" />
     <Content Include="fonts\license.txt" />
     <Content Include="Global.asax" />
+    <Content Include="img\Crew.png" />
     <Content Include="img\Installation.png" />
     <Content Include="img\Maintenance.png" />
     <Content Include="img\preloader-w8-cycle-black.gif" />
@@ -206,6 +209,7 @@
     <Content Include="Views\WorkOrders\New.cshtml" />
     <Content Include="Views\WorkOrders\Edit.cshtml" />
     <Content Include="Views\WorkOrders\Reset.cshtml" />
+    <Content Include="Views\Work\ChooseCrew.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

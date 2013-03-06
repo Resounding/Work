@@ -1,0 +1,50 @@
+﻿@model Site.Models.ChooseCrewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Choose Crew</title>
+        <link rel="stylesheet" type="text/css" href="~/css/modern.css" />
+        <link rel="stylesheet" type="text/css" href="~/css/modern-responsive.css" />
+        <link rel="stylesheet" type="text/css" href="~/css/app.css" />
+
+        <script type="text/javascript" src="/js/jquery-1.9.0.js"></script>
+
+        <style>
+        .tile.crew { width: 150px; }
+        </style>
+    </head>
+    <body>
+        <div class="page">
+        <div class="page-header">
+            <div class="page-header-content">
+                <h1>Choose Crew</h1>                
+            </div>
+        </div>
+        <div class="page-region">
+            <div class="page-region-content">
+                <p>(Normally, you would log in to see your work orders.)</p>
+
+                <div class="clearfix">
+                    @foreach (var crew in Model.Crews) {
+                        <a class="tile crew" href="@Url.Action("Index", new { CrewId = crew.Id })">
+                            <div class="tile-content">
+                                <img src="~/img/Crew.png" alt="Crew" />
+                            </div>
+                            <div class="brand">
+                                <span class="name">@crew.Name</span>
+                            </div>
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
