@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace Site.Controllers
 {
@@ -11,9 +12,13 @@ namespace Site.Controllers
         public ActionResult Index()
         {
             using (var context = new WorkOrderContext()) {
-                var workorders = context.WorkOrders.Include("Crew").Include("Category").Include("WorkOrderLogs").ToList();
+                var workOrders = context.WorkOrders
+                    .Include(w => w.Crew)
+                    .Include(w => w.Category)
+                    .Include(w => w.WorkOrderLogs)
+                    .ToList();
 
-                var viewModel = new BossListViewModel(workorders);
+                var viewModel = new BossListViewModel(workOrders);
                 return View(viewModel);
             }
         }

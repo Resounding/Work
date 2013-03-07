@@ -61,7 +61,7 @@ h1 {
     max-height: 32px; /* 16px line-height x 2 */
 }
 
-.boss-list .page-region {
+.boss-list .page-region, .crew-list .page-region {
     margin-top: 160px;
 }
 
@@ -71,6 +71,7 @@ h1 {
     padding: 10px;    
     overflow: hidden;
 }
+
 .day > .crew-day > h2 {
     display: none;
 }
@@ -83,7 +84,8 @@ h1 {
         display: block;
     }
 
-    body.boss-list header {
+    body.boss-list header,
+    body.crew-list header {
         display: none;
     }
 }
@@ -97,7 +99,8 @@ h1 {
     border-top: 1px solid #ddd;
     min-height: 180px;
 }
-body.boss-list header {
+body.boss-list header, 
+body.crew-list header {
     width: 100%;
     height: 100px;
     margin-bottom: 60px;
@@ -108,7 +111,8 @@ body.boss-list header {
 body.boss-list header .crew-day {
     height: 100px;
 }
-body.boss-list header.header-fixed {
+body.boss-list header.header-fixed,
+body.crew-list header.header-fixed {
     position: fixed;
     border-bottom: 1px solid #ddd;
 }
@@ -116,13 +120,14 @@ body.boss-list header .toolbar {
     height: 60px;
     width: 100%;
     z-index: 10;
-    background-color: #fff;
+    background-color: transparent;
 }
 body.boss-list header.header-fixed .toolbar {
     position: absolute;
     top: 100px;
 }
-body.boss-list header h2 {
+body.boss-list header h2,
+body.crew-list header h2 {
     padding: 0;
     margin: 0;
 }
@@ -137,4 +142,8 @@ body.boss-list header h2 {
     border: solid 1px #1d1d1d;
     padding: 10px;
     height: 50px;
+}
+
+body.crew-list .crew-day {
+    width: 16.6666%;
 }

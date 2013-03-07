@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Site.Models;
+using System.Data.Entity;
 
 namespace Site.Controllers
 {
@@ -19,7 +20,18 @@ namespace Site.Controllers
                     return View("ChooseCrew", model);
                 }
 
-                return View();
+                var crew = context.Crews.FirstOrDefault(c => c.Id == crewId.Value);
+
+                var workOrders = context.WorkOrders
+                    .Include(w => w.Crew)
+                    .Include(w => w.Category)
+                    .Include(w => w.WorkOrderLogs)
+                    .Where(w => w.CrewId == crewId.Value)
+                    .ToList();
+
+                var viewModel = new CrewListViewModel(crew, workOrders);
+
+                return View(viewModel);
             }
         }
 

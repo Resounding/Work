@@ -1,0 +1,7 @@
+﻿@model Site.Models.CrewListDayModel
+
+<div class="crew-day">
+    @foreach(var workOrder in Model.WorkOrders) {
+        @Html.Partial("~/Views/Work/DisplayTemplates/CrewListWorkOrder.cshtml", workOrder);   
+    }
+</div>

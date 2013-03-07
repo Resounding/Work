@@ -1,0 +1,9 @@
+﻿@model Site.Models.CrewListViewModel
+
+<header>
+    <div class="crew-day">&nbsp;</div>
+    @foreach (var date in Model.Dates) {
+        <div class="crew-day"><h2>@date</h2></div>
+    }
+    <div class="clearfix"></div>
+</header>

@@ -1,0 +1,12 @@
+﻿@model Site.Models.CrewListWorkOrderModel
+
+<a href="/WorkOrders/Edit/@Model.Id" class="tile @Model.TileClass">
+    <div class="tile-content">
+        <h3>@Model.Customer</h3>
+        <p>@Model.Description</p>
+        <div class="brand">
+            <div class="badge">@Model.Duration</div>
+            <img class="icon" alt="@Model.TileClass"></img>
+        </div>
+    </div>
+</a>
