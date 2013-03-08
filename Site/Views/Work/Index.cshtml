@@ -29,7 +29,6 @@
                 @Html.Partial("~/Views/Work/DisplayTemplates/CrewListHeader.cshtml", Model)
                 
                 <section class="day">
-                    <div class="crew-day">&nbsp;</div>
                     @foreach (var day in Model.Days) {
                         @Html.Partial("~/Views/Work/DisplayTemplates/CrewListDayModel.cshtml", day);
                     }
