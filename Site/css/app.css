@@ -147,3 +147,7 @@ body.crew-list header h2 {
 body.crew-list .crew-day {
     width: 20%;
 }
+
+.affix {
+    position: fixed;
+}

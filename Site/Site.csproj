@@ -169,6 +169,7 @@
     <Content Include="img\syncfusion-icons-white.png" />
     <Content Include="img\syncfusion-icons.png" />
     <Content Include="js\accordion.js" />
+    <Content Include="js\bootstrap-affix.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\buttonset.js" />
     <Content Include="js\carousel.js" />
