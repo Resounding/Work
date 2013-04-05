@@ -18,5 +18,11 @@ namespace Site.Models
         public DbSet<WorkOrderLog> WorkOrderLogs { get; set; }
         public DbSet<WorkOrderCategory> WorkOrderCategories { get; set; }
         public DbSet<Crew> Crews { get; set; }
+
+        public void Reset()
+        {
+            var configuration = new Configuration();            
+            configuration.Reset(this);
+        }
     }
 }

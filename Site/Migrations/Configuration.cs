@@ -13,7 +13,19 @@ namespace Site.Migrations
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Site.Models.WorkOrderContext context)
+        public void Reset(WorkOrderContext context)
+        {
+            context.Database.ExecuteSqlCommand("Delete dbo.WorkOrderLogs");
+            context.Database.ExecuteSqlCommand("Delete dbo.WorkOrders");
+            context.Database.ExecuteSqlCommand("Delete dbo.WorkOrderCategories");
+            context.Database.ExecuteSqlCommand("Delete dbo.Crews");
+            
+            Seed(context);
+
+            context.SaveChanges();
+        }
+
+        protected override void Seed(WorkOrderContext context)
         {
             if (context.WorkOrderCategories.Count() == 0) {
 

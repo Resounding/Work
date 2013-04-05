@@ -172,7 +172,9 @@
     <Content Include="js\bootstrap-affix.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\buttonset.js" />
+    <Content Include="js\calendar.js" />
     <Content Include="js\carousel.js" />
+    <Content Include="js\dialog.js" />
     <Content Include="js\dropdown.js" />
     <Content Include="js\input-control.js" />
     <Content Include="js\jquery-1.8.3.js" />
@@ -181,7 +183,9 @@
     <Content Include="js\m-radio.js" />
     <Content Include="js\pagecontrol.js" />
     <Content Include="js\rating.js" />
+    <Content Include="js\scrollToFixed.js" />
     <Content Include="js\slider.js" />
+    <Content Include="js\start-menu.js" />
     <Content Include="js\tile-drag.js" />
     <Content Include="js\tile-slider.js" />
     <Content Include="Web.config">

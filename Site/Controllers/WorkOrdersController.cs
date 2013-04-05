@@ -12,6 +12,11 @@ namespace Site.Controllers
         public ActionResult Index()
         {
             using (var context = new WorkOrderContext()) {
+
+                if (!context.WorkOrders.Any(w => w.Date >= DateTime.Today)) {
+                    context.Reset();
+                }
+
                 var workOrders = context.WorkOrders
                     .Include(w => w.Crew)
                     .Include(w => w.Category)

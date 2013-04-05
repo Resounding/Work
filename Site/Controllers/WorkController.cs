@@ -13,6 +13,10 @@ namespace Site.Controllers
         public ActionResult Index(Guid? crewId = null)
         {
             using (var context = new WorkOrderContext()) {
+                if (!context.WorkOrders.Any(w => w.Date >= DateTime.Today)) {
+                    context.Reset();
+                }
+
                 if (!(crewId.HasValue)) {
                     var crews = context.Crews.OrderBy(c => c.Name).ToList();
                     var model = new ChooseCrewModel { Crews = crews };

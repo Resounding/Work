@@ -10,14 +10,15 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@Model.Title</title>
-    <link rel="stylesheet" type="text/css" href="~/css/modern.css" />
-    <link rel="stylesheet" type="text/css" href="~/css/modern-responsive.css" />
-    <link rel="stylesheet" type="text/css" href="~/css/app.css" />
+    <link rel="stylesheet" href="~/css/modern.css" />
+    <link rel="stylesheet" href="~/css/modern-responsive.css" />
+    <link rel="stylesheet" href="~/css/app.css" />
 
-    <script type="text/javascript" src="/js/jquery-1.9.0.js"></script>
+    <script src="/js/jquery-1.9.0.js"></script>
+    <script src="/js/scrollToFixed.js"></script>
     <script src="/js/bootstrap-affix.js"></script>
 </head>
-<body class="boss-list">
+<body class="boss-list metrouicss">
     <div class="page">
         <div class="page-header">
             <div class="page-header-content">
@@ -38,17 +39,7 @@
     </div>
     <script type="text/javascript">
     $(function () {
-        $('header').affix();
-        /*var $window = $(window),
-            $header = $('header'),
-            top = $header.offset().top;
-        window.setInterval(function() {
-            if($window.scrollTop() > top) {
-                $header.addClass('header-fixed');
-            } else {
-                $header.removeClass('header-fixed');
-            }
-        }, 100);*/
+        $('header').scrollToFixed();
     });
     </script>
 </body>
