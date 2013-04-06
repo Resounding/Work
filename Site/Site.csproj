@@ -134,6 +134,7 @@
     <Compile Include="Models\CrewListDayModel.cs" />
     <Compile Include="Models\CrewListWorkOrderModel.cs" />
     <Compile Include="Models\CrewListViewModel.cs" />
+    <Compile Include="Models\EditWorkItemViewModel.cs" />
     <Compile Include="Models\EditWorkOrderModel.cs" />
     <Compile Include="Models\Crew.cs" />
     <Compile Include="Models\DbMaps.cs" />
@@ -222,6 +223,7 @@
     <Content Include="Views\Work\DisplayTemplates\CrewListHeader.cshtml" />
     <Content Include="Views\Work\DisplayTemplates\CrewListWorkOrder.cshtml" />
     <Content Include="Views\Work\DisplayTemplates\CrewListDayModel.cshtml" />
+    <Content Include="Views\Work\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

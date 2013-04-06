@@ -39,5 +39,50 @@ namespace Site.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult Index(WorkOrderLog input, Guid crewId)
+        {
+            using (var context = new WorkOrderContext()) {
+
+                var workOrder = context.WorkOrders.Include(w => w.WorkOrderLogs).First(w => w.Id == input.WorkOrderId);
+
+                if (!workOrder.WorkOrderLogs.Any()) {
+                    workOrder.WorkOrderLogs.Add(input);
+                } else {
+                    var log = workOrder.WorkOrderLogs.First();
+                    log.Date = DateTime.Now;
+                    log.Notes = input.Notes;
+                }
+
+                context.SaveChanges();
+
+                return RedirectToAction("Index", new { crewId = crewId });
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Edit(Guid id)
+        {
+            using (var context = new WorkOrderContext()) {
+                var workOrder = context.WorkOrders.Include(w => w.WorkOrderLogs).FirstOrDefault(w => w.Id == id);
+
+                var log = workOrder.WorkOrderLogs.FirstOrDefault() ?? new WorkOrderLog();
+
+                var viewModel = new EditWorkItemViewModel {
+                    Id = log.Id,
+                    WorkOrderId = workOrder.Id,
+                    Title = "Enter work for work order",
+                    Date = workOrder.DateDisplay,
+                    Customer = workOrder.Customer,
+                    Description = workOrder.Description,
+                    Duration = workOrder.Duration,
+                    Notes = log.Notes,
+                    CrewId = workOrder.CrewId.Value
+                };
+
+                return View(viewModel);
+
+            }
+        }
     }
 }

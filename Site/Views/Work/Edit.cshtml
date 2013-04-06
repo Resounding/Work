@@ -1,0 +1,66 @@
+﻿@model Site.Models.EditWorkItemViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Model.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/css/modern.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/modern-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/app.css" />
+
+    <script type="text/javascript" src="/js/jquery-1.9.0.js"></script>
+</head>
+<body class="metrouicss">
+    <div class="page secondary">
+        <div class="page-header">
+            <div class="page-header-content">
+                <h1>@Model.Title</h1>
+                <a href="@Url.Action("Index")" class="back-button big page-back"></a>
+            </div>
+        </div>
+        <div class="page-region">
+            <div class="page-region-content">
+                @using(Html.BeginForm("Index", "Work")) {
+                    
+                    @Html.HiddenFor(m => m.Id)
+                    @Html.HiddenFor(m => m.WorkOrderId)
+                    @Html.HiddenFor(m => m.CrewId)
+
+                    <label>Date:</label>
+                    <div class="input-control text span2">
+                        <span>@Model.Date</span>
+                    </div>
+                    
+                    <label>Customer:</label>
+                    <div class="input-control text span5">
+                        <span>@Model.Customer</span>
+                    </div>
+                    
+                    <label>Description:</label>
+                    <div class="input-control textarea span7">
+                        <span>@Model.Description</span>
+                    </div>
+                    
+                    <label>Duration:</label>
+                    <div class="input-control select span2">
+                        <span>@Model.Duration</span>
+                    </div>
+                    
+                    <label>Work Done:</label>
+                    <div class="input-control textarea span7">
+                        <textarea name="Notes" rows="5" autofocus>@Model.Notes</textarea>
+                    </div>
+                    
+                    @Html.ActionLink("Cancel", "Index", null, new { @class = "button" })
+                    <input type="submit" value="Save" class="button" />
+                }
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
