@@ -151,3 +151,7 @@ body.crew-list .crew-day {
 .affix {
     position: fixed;
 }
+
+.metrouicss label.checkbox.input-control.span7 {
+    display: block;
+}

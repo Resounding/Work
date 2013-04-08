@@ -12,6 +12,7 @@ namespace Site.Models
         public String Customer { get; set; }
         public String Description { get; set; }
         public string Duration { get; set; }
+        public bool IsComplete { get; set; }
 
         public string Notes { get; set; }
     }

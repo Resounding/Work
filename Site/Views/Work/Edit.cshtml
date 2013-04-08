@@ -55,6 +55,11 @@
                     <div class="input-control textarea span7">
                         <textarea name="Notes" rows="5" autofocus>@Model.Notes</textarea>
                     </div>
+
+                    <label class="input-control checkbox span7">
+                        @Html.CheckBoxFor(m => m.IsComplete)
+                        <span class="helper">Job Complete?</span>
+                    </label>                    
                     
                     @Html.ActionLink("Cancel", "Index", null, new { @class = "button" })
                     <input type="submit" value="Save" class="button" />

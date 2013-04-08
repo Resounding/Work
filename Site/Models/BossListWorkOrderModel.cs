@@ -45,7 +45,7 @@ namespace Site.Models
 
         public string TileClass
         {
-            get { return Category.ToLower(); }
+            get { return Category.ToLower() + (IsComplete ? " selected" : ""); }
         }
     }
 }

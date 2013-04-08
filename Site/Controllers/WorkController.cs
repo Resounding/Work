@@ -30,7 +30,7 @@ namespace Site.Controllers
                     .Include(w => w.Crew)
                     .Include(w => w.Category)
                     .Include(w => w.WorkOrderLogs)
-                    .Where(w => w.CrewId == crewId.Value)
+                    .Where(w => !w.IsComplete && w.CrewId == crewId.Value)
                     .ToList();
 
                 var viewModel = new CrewListViewModel(crew, workOrders);
@@ -40,13 +40,15 @@ namespace Site.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(WorkOrderLog input, Guid crewId)
+        public ActionResult Index(WorkOrderLog input, Guid crewId, bool isComplete)
         {
             using (var context = new WorkOrderContext()) {
 
                 var workOrder = context.WorkOrders.Include(w => w.WorkOrderLogs).First(w => w.Id == input.WorkOrderId);
+                workOrder.IsComplete = isComplete;
 
                 if (!workOrder.WorkOrderLogs.Any()) {
+                    input.Date = DateTime.Now;
                     workOrder.WorkOrderLogs.Add(input);
                 } else {
                     var log = workOrder.WorkOrderLogs.First();
@@ -77,7 +79,8 @@ namespace Site.Controllers
                     Description = workOrder.Description,
                     Duration = workOrder.Duration,
                     Notes = log.Notes,
-                    CrewId = workOrder.CrewId.Value
+                    CrewId = workOrder.CrewId.Value,
+                    IsComplete = workOrder.IsComplete
                 };
 
                 return View(viewModel);
