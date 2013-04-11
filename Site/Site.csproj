@@ -150,6 +150,7 @@
     <Content Include="css\app.css" />
     <Content Include="css\bootstrap-responsive.css" />
     <Content Include="css\bootstrap.css" />
+    <Content Include="css\chardinjs.css" />
     <Content Include="css\m-styles.min.css" />
     <Content Include="css\modern-responsive.css" />
     <Content Include="css\modern.css" />
@@ -175,6 +176,7 @@
     <Content Include="js\buttonset.js" />
     <Content Include="js\calendar.js" />
     <Content Include="js\carousel.js" />
+    <Content Include="js\chardinjs.js" />
     <Content Include="js\dialog.js" />
     <Content Include="js\dropdown.js" />
     <Content Include="js\input-control.js" />

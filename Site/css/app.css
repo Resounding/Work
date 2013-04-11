@@ -61,10 +61,6 @@ h1 {
     max-height: 32px; /* 16px line-height x 2 */
 }
 
-.boss-list .page-region, .crew-list .page-region {
-    margin-top: 160px;
-}
-
 .crew-day {
     float: left;
     width: 20%;
@@ -105,7 +101,7 @@ body.crew-list header {
     height: 100px;
     margin-bottom: 60px;
     top: 0;
-    z-index: 10;
+    z-index: 1004;
     background-color: #eff4ff;
 }
 body.boss-list header .crew-day {
@@ -119,7 +115,7 @@ body.crew-list header.header-fixed {
 body.boss-list header .toolbar {
     height: 60px;
     width: 100%;
-    z-index: 10;
+    z-index: 1004;
     background-color: transparent;
 }
 body.boss-list header.header-fixed .toolbar {
@@ -154,4 +150,36 @@ body.crew-list .crew-day {
 
 .metrouicss label.checkbox.input-control.span7 {
     display: block;
+}
+
+.tour-wrapper section.message {
+    display: none;
+    height: 30%;
+    z-index: 1004;
+}
+.tour-wrapper.tour section.message {
+    display: block;
+    height: 150px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.tour-wrapper section.content {
+    height: 100%;
+}
+.tour-wrapper.tour section.content,
+.tour-wrapper.tour .affix {
+    margin-top: 150px;
+}
+
+.tour-wrapper .hide-tour {
+    display: none;
+}
+.tour-wrapper.tour .hide-tour {
+    display: inline-block;
+}
+
+.tour-wrapper.tour .show-tour {
+    display: none;
 }
