@@ -13,11 +13,9 @@
     <link rel="stylesheet" href="/css/modern.css" />
     <link rel="stylesheet" href="/css/modern-responsive.css" />
     <link rel="stylesheet" href="/css/app.css" />
-    <link rel="stylesheet" href="/css/chardinjs.css" />
 
     <script src="/js/jquery-1.9.0.js"></script>
     <script src="/js/scrollToFixed.js"></script>
-    <script src="/js/chardinjs.js"></script>
 </head>
 <body class="boss-list metrouicss">
     <div class="tour-wrapper">        
@@ -63,23 +61,7 @@
 
             $('.tour-wrapper').addClass('tour');
             window.location.hash = 'tour';
-            $('header').trigger('detach.ScrollToFixed').scrollToFixed({ marginTop: 150, zIndex: 1003 })
-                .on('fixed.ScrollToFixed', function (e) {
-                    $('.chardinjs-overlay').css('top', 150);
-                    $('.chardinjs-helper-layer').css({ position: 'fixed', top: 250 });
-                    $('header').css('zIndex', 9999998).css('backgroundColor', '#333');
-                }).on('unfixed.ScrollToFixed', function (e) {
-                    $('.chardinjs-overlay').css('top', 150);
-                    $('.chardinjs-helper-layer').css({ position: 'absolute', top: 360 });
-                    $('header').css('backgroundColor', '')
-                }).on('preFixed.ScrollToFixed', function (e) {
-                    $('.chardinjs-overlay').css('top', 150);
-                });
-
-            $('body').on('chardinJs:start', function (e) {
-                debugger;
-                $('.chardinjs-overlay').css('top', 150);
-            }).chardinJs('start');
+            $('header').trigger('detach.ScrollToFixed').scrollToFixed({ marginTop: top, zIndex: 1003 });
         });
 
         $('.hide-tour').click(function (e) {
@@ -88,7 +70,6 @@
             $('.tour-wrapper').removeClass('tour');
             window.location.hash = '';
             $('header').trigger('detach.ScrollToFixed').scrollToFixed();
-            $('body').chardinJs('stop');
         });
     });
     </script>
