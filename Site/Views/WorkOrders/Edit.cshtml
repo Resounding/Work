@@ -14,7 +14,9 @@
     <link rel="stylesheet" type="text/css" href="~/css/modern-responsive.css" />
     <link rel="stylesheet" type="text/css" href="~/css/app.css" />
 
-    <script type="text/javascript" src="/js/jquery-1.9.0.js"></script>
+    <script src="/js/jquery-1.9.0.js"></script>
+    <script src="/js/moment.js"></script>
+    <script src="/js/calendar.js"></script>
 </head>
 <body class="metrouicss">
     <div class="page secondary">
@@ -28,15 +30,21 @@
             <div class="page-region-content">
                 @using(Html.BeginForm("Save", "WorkOrders")) {
                     @Html.HiddenFor(m => m.Id)
-                    <label>Date:</label>
-                    <div class="input-control text span2">
-                        <input type="text" name="Date" value="@Model.Date" class="with-helper" />
-                        <button class="helper" tabindex="-1" type="button"></button>
-                    </div>
-                    
+
                     <label>Customer:</label>
                     <div class="input-control text span5">
                         <input type="text" name="Customer" value="@Model.Customer" />
+                    </div>
+
+                    <label>Date:</label>
+                    <div class="input-control text span5">
+                        <input type="hidden" name="Date" value="@Model.Date" />
+                        <div class="calendar" data-lang="en"></div>
+                    </div>
+                    
+                    <label>Duration:</label>
+                    <div class="input-control select span2">
+                        @Html.DropDownListFor(wo => wo.Duration, Model.Durations.Select(d => new SelectListItem{ Text = d, Value = d }))
                     </div>
                     
                     <label>Crew:</label>
@@ -53,17 +61,24 @@
                     <div class="input-control select span2">
                         @Html.DropDownListFor(wo => wo.CategoryId, new SelectList(Model.Categories, "Id", "Name"))
                     </div>
-                    
-                    <label>Duration:</label>
-                    <div class="input-control select span2">
-                        @Html.DropDownListFor(wo => wo.Duration, Model.Durations.Select(d => new SelectListItem{ Text = d, Value = d }))
-                    </div>
-                    
+                                        
                     @Html.ActionLink("Cancel", "Index", null, new { @class = "button" })
                     <input type="submit" value="Save" class="button" />
                 }
             </div>
         </div>
     </div>    
+    <script>
+        $(function () {
+            var $calendar = $('div.calendar'),
+                $hidden = $('input:hidden[name=Date]');
+                
+            $calendar.calendarSetDate($hidden.val());
+            $calendar.init();
+            $calendar.on('date-selected', function (el, dateString, dateMoment) {
+                $hidden.val(dateString);
+            });
+        });
+    </script>
 </body>
 </html>

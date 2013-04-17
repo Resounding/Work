@@ -21,14 +21,17 @@
     <div class="tour-wrapper">        
         <section class="message info-bar">
             <button class="hide-tour place-right tool-button toolbar"><i class="icon-cancel-2"></i> </button>
-            This is the message content
+            <p>This page shows you a day-by-day listing of which crews are scheduled to do what work.</p>
+            <p>You can click the <a href="@Url.Action("New")" class="button new"><i class="icon-plus"></i> New Work Order</a>
+            button, or any of the existing Work Order tiles in the list.</p>
+            <p>Click here to see the view that your <a href="@Url.Action("Index", "Work")" class="button new"><i class="icon-user-2"></i>Crews</a> will see.</p>
         </section>
         <section class="content">
             <div class="page">
                 <div class="page-header">
                     <div class="page-header-content">
                         <h1>@Model.Title</h1>
-                        <button class="show-tour place-right"><i class="icon-comments-5"></i> Show Tour</button>                        
+                        <button class="show-tour place-right"><i class="icon-comments-5"></i> Show Page Info</button>                        
                     </div>
                 </div>
                 <div class="page-region">
@@ -61,7 +64,7 @@
 
             $('.tour-wrapper').addClass('tour');
             window.location.hash = 'tour';
-            $('header').trigger('detach.ScrollToFixed').scrollToFixed({ marginTop: top, zIndex: 1003 });
+            $('header').trigger('detach.ScrollToFixed').scrollToFixed({ marginTop: 150, zIndex: 1003 });
         });
 
         $('.hide-tour').click(function (e) {

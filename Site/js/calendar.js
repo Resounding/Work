@@ -252,6 +252,7 @@
             calMoment = date ? moment(date) : moment();
             calMoment.lang(lang);
             $element.data('date', calMoment);
+            selectedDateString = calMoment.format('YYYY-MM-DD');
             fillCalendar();
             $element.trigger('date-setted', [date, calMoment]);
         };
