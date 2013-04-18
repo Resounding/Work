@@ -30,30 +30,64 @@
     </script>
 </head>
 <body class="crew-list metrouicss">
-    <div class="page">
-        <div class="page-header">
-            <div class="page-header-content">
-                <h1>@Model.Title</h1>
-            </div>
-        </div>
-        <div class="page-region">
-            <div class="page-region-content">
+    <div class="tour-wrapper">        
+        <section class="message info-bar">
+            <button class="hide-tour place-right tool-button toolbar"><i class="icon-cancel-2"></i> </button>
+            <p>This page shows you a day-by-day listing of what work a particular crew is scheduled to do.</p>
+            <p>You can click any of the tiles to enter the work done, and indicate whether the job is done.</p>
+            <p>Click here to see the <a href="/WorkOrders#tour" class="button"><i class="icon-calendar"></i>Master Schedule</a> list.</p>
+        </section>
+        <section class="content">
+            <div class="page">
+                <div class="page-header">
+                    <div class="page-header-content">
+                        <h1>@Model.Title</h1>
+                        <button class="show-tour place-right"><i class="icon-comments-5"></i> Show Page Info</button>
+                    </div>
+                </div>
+                <div class="page-region">
+                    <div class="page-region-content">
                 
-                @Html.Partial("~/Views/Work/DisplayTemplates/CrewListHeader.cshtml", Model)
+                        @Html.Partial("~/Views/Work/DisplayTemplates/CrewListHeader.cshtml", Model)
                 
-                <section class="day">
-                    @foreach (var day in Model.Days) {
-                        @Html.Partial("~/Views/Work/DisplayTemplates/CrewListDayModel.cshtml", day);
-                    }
-                </section>
+                        <section class="day">
+                            @foreach (var day in Model.Days) {
+                                @Html.Partial("~/Views/Work/DisplayTemplates/CrewListDayModel.cshtml", day);
+                            }
+                        </section>
 
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </div>
     <script type="text/javascript">
-    $(function() {
-        $('header').scrollToFixed();
-    });
+        $(function () {
+            if (window.location.hash.indexOf('tour') === -1) {
+                $('header').scrollToFixed();
+            } else {
+                $('.tour-wrapper').addClass('tour');
+                window.setTimeout(function () {
+                    $('header').scrollToFixed({ marginTop: 150, zIndex: 1003 });
+                }, 250);
+            }
+
+            $('.show-tour').click(function (e) {
+                e.preventDefault();
+
+                $('.tour-wrapper').addClass('tour');
+                window.location.hash = 'tour';
+                $('header').trigger('detach.ScrollToFixed').scrollToFixed({ marginTop: 150, zIndex: 1003 });
+            });
+
+            $('.hide-tour').click(function (e) {
+                e.preventDefault();
+
+                $('.tour-wrapper').removeClass('tour');
+                window.location.hash = '';
+                $('header').trigger('detach.ScrollToFixed').scrollToFixed();
+            });
+        });
     </script>
 </body>
 </html>
