@@ -50,7 +50,43 @@ namespace Site.Controllers
         {
             using(var context = new WorkOrderContext()) {
                 input.Id = Guid.NewGuid();
-                context.WorkOrders.Add(input);
+                context.WorkOrders.Add(input);                
+
+                if (input.Duration.EndsWith("d", StringComparison.InvariantCultureIgnoreCase)) {
+                    var duration = default(int);
+                    if (int.TryParse(input.Duration.Replace("d", ""), out duration)) {
+                        duration--;
+                        var days = 1;
+                        var date = input.Date.HasValue ? input.Date : (null as DateTime?);
+                        while (days <= duration) {
+
+                            if (date.HasValue) {
+                                date = date.Value.AddDays(1);
+                                if(date.Value.DayOfWeek == DayOfWeek.Saturday){
+                                    date = date.Value.AddDays(2);
+                                }
+
+                                if (date.Value.DayOfWeek == DayOfWeek.Sunday) {
+                                    date = date.Value.AddDays(1);
+                                }
+                            }
+
+                            var nextWorkOrder = new WorkOrder {
+                                Id = Guid.NewGuid(),
+                                CategoryId=input.CategoryId,
+                                CrewId=input.CrewId,
+                                Customer=input.Customer,
+                                Description=input.Description,
+                                Duration=input.Duration,
+                                Date = date
+                            };
+                            context.WorkOrders.Add(nextWorkOrder);
+
+                            days++;
+                        }
+                    }
+                }
+
                 context.SaveChanges();
 
                 return RedirectToAction("Index");
