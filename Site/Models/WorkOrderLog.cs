@@ -13,5 +13,6 @@ namespace Site.Models
         public String Notes { get; set; }
 
         public WorkOrder WorkOrder { get; set; }
+        public Signature Signature { get; set; }
     }
 }

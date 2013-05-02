@@ -14,4 +14,12 @@ namespace Site.Models
             HasOptional(w => w.Category).WithMany(c => c.WorkOrders).HasForeignKey(w => w.CategoryId);
         }
     }
+
+    public class WorkOrderLogMap : EntityTypeConfiguration<WorkOrderLog>
+    {
+        public WorkOrderLogMap()
+        {
+            Ignore(w => w.Signature);
+        }
+    }
 }

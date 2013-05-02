@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using Site.Models;
 using System.Data.Entity;
+using Newtonsoft.Json;
+using ConsumedByCode.SignatureToImage;
 
 namespace Site.Controllers
 {
@@ -41,11 +43,18 @@ namespace Site.Controllers
 
         [HttpPost]
         public ActionResult Index(WorkOrderLog input, Guid crewId, bool isComplete)
-        {
+        {            
             using (var context = new WorkOrderContext()) {
 
                 var workOrder = context.WorkOrders.Include(w => w.WorkOrderLogs).First(w => w.Id == input.WorkOrderId);
                 workOrder.IsComplete = isComplete;
+
+                var signatureValue = Request.Form["Signature"];
+                if (!string.IsNullOrEmpty(signatureValue)) {
+                    var signature = JsonConvert.DeserializeObject<Signature>(signatureValue);
+                    var converter = new SignatureToImage();
+                    var image = converter.SigJsonToImage(signatureValue);
+                }
 
                 if (!workOrder.WorkOrderLogs.Any()) {
                     input.Date = DateTime.Now;

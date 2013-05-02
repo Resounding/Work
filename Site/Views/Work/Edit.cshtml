@@ -12,8 +12,18 @@
     <link rel="stylesheet" type="text/css" href="~/css/modern.css" />
     <link rel="stylesheet" type="text/css" href="~/css/modern-responsive.css" />
     <link rel="stylesheet" type="text/css" href="~/css/app.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/jquery.signaturepad.css" />
+
+    <style>
+        .sigWrapper {
+          clear: both;
+          height: 75px; /* Change the height */
+          border: 1px solid #ccc;
+        }
+    </style>
 
     <script type="text/javascript" src="/js/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="~/js/jquery.signaturepad.min.js"></script>
     <script type="text/javascript">
 
         var _gaq = _gaq || [];
@@ -69,9 +79,18 @@
                     </div>
 
                     <label class="input-control checkbox span7">
-                        @Html.CheckBoxFor(m => m.IsComplete)
+                        @Html.CheckBoxFor(m => m.IsComplete, new { @class = "complete" })
                         <span class="helper">Job Complete?</span>
-                    </label>                    
+                    </label>                
+                    
+                    <label class="signature no-display">Signature:</label>
+                    <div class="input-control span7 signature no-display">
+                        <div class="sig sigWrapper">
+                            <canvas class="pad" height="50"></canvas>
+                            <input type="hidden" name="signature" class="output">
+                        </div>
+                        <a class="clear" href="#">Clear</a>
+                    </div>
                     
                     @Html.ActionLink("Cancel", "Index", null, new { @class = "button" })
                     <input type="submit" value="Save" class="button" />
@@ -79,5 +98,15 @@
             </div>
         </div>
     </div>    
+    <script type="text/javascript">
+        $(function () {
+            var sigPad = $('form').signaturePad({ drawOnly: true, clear: 'a.clear' });
+
+            $('input:checkbox.complete').click(function (e) {
+                var method = e.currentTarget.checked ? 'removeClass' : 'addClass';
+                $('.signature')[method]('no-display');
+            });
+        });
+    </script>
 </body>
 </html>

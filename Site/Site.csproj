@@ -139,6 +139,8 @@
     <Compile Include="Models\Crew.cs" />
     <Compile Include="Models\DbMaps.cs" />
     <Compile Include="Models\NewWorkOrderModel.cs" />
+    <Compile Include="Models\Signature.cs" />
+    <Compile Include="Models\SignatureToImage.cs" />
     <Compile Include="Models\WorkOrder.cs" />
     <Compile Include="Models\WorkOrderCategory.cs" />
     <Compile Include="Models\WorkOrderLog.cs" />
@@ -151,9 +153,11 @@
     <Content Include="css\bootstrap-responsive.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\chardinjs.css" />
+    <Content Include="css\jquery.signaturepad.css" />
     <Content Include="css\m-styles.min.css" />
     <Content Include="css\modern-responsive.css" />
     <Content Include="css\modern.css" />
+    <Content Include="css\pen.cur" />
     <Content Include="css\theme-dark.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\iconFont.svg" />
@@ -179,9 +183,11 @@
     <Content Include="js\chardinjs.js" />
     <Content Include="js\dialog.js" />
     <Content Include="js\dropdown.js" />
+    <Content Include="js\flashcanvas.js" />
     <Content Include="js\input-control.js" />
     <Content Include="js\jquery-1.8.3.js" />
     <Content Include="js\jquery-1.9.0.js" />
+    <Content Include="js\jquery.signaturepad.min.js" />
     <Content Include="js\m-dropdown.js" />
     <Content Include="js\m-radio.js" />
     <Content Include="js\moment.js" />
@@ -227,6 +233,7 @@
     <Content Include="Views\Work\DisplayTemplates\CrewListWorkOrder.cshtml" />
     <Content Include="Views\Work\DisplayTemplates\CrewListDayModel.cshtml" />
     <Content Include="Views\Work\Edit.cshtml" />
+    <None Include="Properties\PublishProfiles\resounding.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
