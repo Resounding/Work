@@ -45,6 +45,9 @@ namespace Site.Migrations
                         var wo = default(WorkOrder);
 
                         var monday = DateTime.Today;
+                        while (monday.DayOfWeek == DayOfWeek.Saturday || monday.DayOfWeek == DayOfWeek.Sunday) {
+                            monday = monday.AddDays(1);
+                        }
                         while (monday.DayOfWeek != DayOfWeek.Monday) {
                             monday = monday.AddDays(-1);
                         }

@@ -13,6 +13,9 @@ namespace Site.Models
             Dates = new List<string>();
 
             var firstDate = DateTime.Today;
+            while (firstDate.DayOfWeek == DayOfWeek.Saturday || firstDate.DayOfWeek == DayOfWeek.Sunday) {
+                firstDate = firstDate.AddDays(1);
+            }
             while (firstDate.DayOfWeek != DayOfWeek.Monday) {
                 firstDate = firstDate.AddDays(-1);
             }
