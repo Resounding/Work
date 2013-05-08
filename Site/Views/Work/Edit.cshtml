@@ -17,8 +17,14 @@
     <style>
         .sigWrapper {
           clear: both;
-          height: 75px; /* Change the height */
-          border: 1px solid #ccc;
+          height: 100px;
+        }
+        .sigPad {
+            width: 500px;
+        }
+        canvas.pad {
+            width: 500px;
+            height: 95px;
         }
     </style>
 
@@ -86,7 +92,7 @@
                     <label class="signature no-display">Signature:</label>
                     <div class="input-control span7 signature no-display">
                         <div class="sig sigWrapper">
-                            <canvas class="pad" height="50"></canvas>
+                            <canvas class="pad" width="500" height="95"></canvas>
                             <input type="hidden" name="signature" class="output">
                         </div>
                         <a class="clear" href="#">Clear</a>
@@ -100,7 +106,7 @@
     </div>    
     <script type="text/javascript">
         $(function () {
-            var sigPad = $('form').signaturePad({ drawOnly: true, clear: 'a.clear' });
+            var sigPad = $('form').signaturePad({ drawOnly: true, clear: 'a.clear', lineTop: 65 });
 
             $('input:checkbox.complete').click(function (e) {
                 var method = e.currentTarget.checked ? 'removeClass' : 'addClass';
